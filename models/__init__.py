@@ -4,3 +4,4 @@ db = SQLAlchemy()
 
 from models.product import Product
 from models.order import Order, OrderItem
+from models.user import User
