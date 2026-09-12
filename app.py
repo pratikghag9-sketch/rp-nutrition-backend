@@ -7,6 +7,7 @@ from routes.products import products_bp
 from routes.orders import orders_bp
 from routes.auth import auth_bp
 
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
@@ -20,11 +21,20 @@ def create_app():
 
     return app
 
+
 app = create_app()
+
 
 @app.route('/')
 def home():
-    return {"message": "RP Nutrition backend is running!"}
+    return {"message": "RP Nutrition backend running"}
+
+
+@app.route('/api/setup-db')
+def setup_db():
+    db.create_all()
+    return {'message': 'Tables created successfully'}
+
 
 if __name__ == '__main__':
     app.run(debug=True)
