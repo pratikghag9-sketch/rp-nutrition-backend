@@ -30,10 +30,7 @@ def home():
     return {"message": "RP Nutrition backend running"}
 
 
-@app.route('/api/setup-db')
-def setup_db():
-    db.create_all()
-    return {'message': 'Tables created successfully'}
+}
 
 
 if __name__ == '__main__':
