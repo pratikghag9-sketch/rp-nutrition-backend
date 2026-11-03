@@ -30,7 +30,6 @@ def home():
     return {"message": "RP Nutrition backend running"}
 
 
-}
 
 
 if __name__ == '__main__':
