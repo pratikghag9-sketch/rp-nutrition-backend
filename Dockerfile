@@ -5,10 +5,10 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-# non-root user (container hack ho toh bhi root access nahi milega)
+# Non-root user: if the container is compromised, the attacker does not get root
 RUN addgroup --system app && adduser --system --ingroup app app
 
-# pehle sirf requirements copy: packages ki layer cache ho jaati hai, build tez hota hai
+# Copy requirements first so the package layer is cached and builds stay fast
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
